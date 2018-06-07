@@ -1,0 +1,104 @@
+.mbar {
+  overflow: hidden;
+  width: 372px;
+}
+
+.mbar button {
+  border: 1px white solid;
+  float: left;
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 16px 20px;
+  text-decoration: none;
+}
+
+.mbar button:hover {
+  background: #fff;
+  color: black;
+}
+
+iframe {
+  width: 100%;
+  height: 800px;
+  margin-top: 30px;
+  border-style: none;
+  IFrame.allowTransparency="true";
+}
+
+.logo img {
+  float: left width: 95px;
+  height: 95px;
+  -webkit-animation: spin 4s linear infinite;
+  -moz-animation: spin 4s linear infinite;
+  animation: spin 4s linear infinite;
+}
+
+.logo {
+  border: solid black;
+  width: 95px;
+  float: left;
+}
+
+.bodye h1 {
+  position: relative;
+  top: -50px;
+  left: 10px;
+}
+
+/* Safari 4.0 - 8.0 */
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    border-radius: 17px;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+.logbox{
+  margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+.container {
+    padding: 16px;
+    background-color: white;
+}
+.registerbtn {
+
+    background-color: blue;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
