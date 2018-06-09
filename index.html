@@ -8,30 +8,31 @@
   <body>
     <link rel="stylesheet" type="text/css" href="Style.css">
     <div class="logo"><img src="img/logo.png" alt="logo" /></div>
-    <a href="https://www.dmi.dk" target="indhold"><img src="img/Compas.png" alt="titel" /></a>
+    <a onclick="link('https://www.DMI.dk')"><img src="img/Compas.png" alt="titel" /></a>
     <!--<div style="margin-left: px"><h1>The Compas</h1></div>*-->
     <div class="mbar">
-      <button onclick="DMIFunction()">DMI</button>
-      <button onclick="DRFunction()">DR</button>
-      <button onclick="TV2unction()">TV2</button>
+      <button onclick="link('https://www.DMI.dk')">DMI</button>
+      <button onclick=link('https://www.DR.dk')>DR</button>
+      <button onclick=link('https://www.TV2.dk')>TV2</button>
       <button onclick="login()">LOGIN</button>
       <button onclick="SIGNUP()">SIGNUP</button>
     </div>
 
-    <div id="mycontent"><iframe src="https://www.DMI.dk/" name="indhold"></iframe></div>
+    <div id="mycontent"><iframe src="https://www.DMI.dk" name="indhold"></iframe></div>
 
     <script>
-      function DMIFunction() {
-        document.getElementById("mycontent").innerHTML = '<iframe src="https://www.dmi.dk/" name="indhold">';
-      }
+    function dis(){
+  if (  document.getElementById("tos").checked == true) {
+      document.getElementById("tosid").removeAttribute("href");
+  }
+  else {
+    document.getElementById("tosid").href="tos.html";
+  }
 
-      function DRFunction() {
-        document.getElementById("mycontent").innerHTML = '<iframe src="https://www.dr.dk/" name="indhold">';
-      }
-
-      function TV2unction() {
-        document.getElementById("mycontent").innerHTML = '<iframe src="https://www.tv2.dk/" name="indhold">';
-      }
+    }
+      function link(lk){
+      document.getElementById("mycontent").innerHTML = '<iframe src='+lk+' name="indhold">';
+    }
 
       function login() {
         document.getElementById("mycontent").innerHTML = "is't done"
@@ -39,18 +40,32 @@
 
       function SIGNUP() {
         var x = '<div class = logbox><label for="email"><b>Email</b></label>'+
-        '<input type="text" placeholder="inpur Email" id="email" name="email" required>'+
-        '<label for="psw"><b>Kode</b></label> <input type="password" placeholder="input Kode" id="psw" name="psw" required>'+
-        '<label for="psw-repeat"><b>Gentag Kode</b></label> <input type="password" placeholder="Gentag Kode" id="pswg" name="psw-repeat" required>'+
-        '<button id="b1" type="submit" onclick="validateForm()" class="registerbtn">Oprat Bruger</button></div>'+
-        '<input type="checkbox" name="vehicle" id="tos" value="Bike">accept tos<br>';
+        '<input type="text"tabindex=1 placeholder="inpur Email" id="email" name="email" required>'+
+        '<label for="psw"><b>Kode</b></label> <input type="password" tabindex=2 placeholder="input Kode" id="psw" name="psw" required>'+
+        '<label for="psw-repeat"><b>Gentag Kode</b></label> <input type="password" tabindex=3 placeholder="Gentag Kode" id="pswg" name="psw-repeat" required>'+
+        '<input type="checkbox" onclick="dis()" tabindex=4 name="vehicle" id="tos" value="Bike"> <a href="tos.html" target="_blank" id="tosid"> accept tos<br>'+
+        '<button id="b1" type="submit" tabindex=5 onclick="validateForm()" class="registerbtn">Oprat Bruger</button></div>';
         document.getElementById("mycontent").innerHTML = x;
+
+        addToEvent(document.getElementById("email"));
+        addToEvent(document.getElementById("psw"));
+        addToEvent(document.getElementById("pswg"));
+
+
+        /**/
+      }
+      function addToEvent(obj) {
+        obj.addEventListener("keydown", function(event) {
+            if (event.keyCode === 13) {
+                document.getElementById("b1").click();
+            }
+        });
       }
       function validateForm() {
     var x = document.getElementById("email").value;
     var y = document.getElementById("psw").value;
     var z = document.getElementById("pswg").value;
-    var t = document.getElementById("tos").value;
+    var t = document.getElementById("tos");
     var k = y.replace(/\D/g,'');
     var ups = ""
     if (x == "") {
@@ -74,7 +89,8 @@
     if (y !== z) {
       ups = ups+"\npassword must be the same.";
     }
-    if (t == false) {
+
+    if (t.checked == false) {
       ups = ups+ "\nacept tos"
     }
     if(ups == ""){
@@ -83,6 +99,7 @@
     else {
       alert(ups)
     }
+
 
 }
 
