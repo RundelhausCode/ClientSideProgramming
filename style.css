@@ -66,39 +66,43 @@ iframe {
     transform: rotate(360deg);
   }
 }
+
 /* Full-width input fields */
+
 input[type=text], input[type=password] {
-    width: 100%;
-    border-radius: 17px;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
+  width: 100%;
+  border-radius: 17px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
 }
 
 input[type=text]:focus, input[type=password]:focus {
-    background-color: #ddd;
-    outline: none;
+  background-color: #ddd;
+  outline: none;
 }
-.logbox{
-  margin: auto;
-    width: 60%;
-    padding: 10px;
-}
-.container {
-    padding: 16px;
-    background-color: white;
-}
-.registerbtn {
 
-    background-color: blue;
-    color: white;
-    padding: 16px 20px;
-    margin: 8px 0;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
+.logbox {
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+}
+
+.container {
+  padding: 16px;
+  background-color: white;
+}
+
+.registerbtn {
+  background-color: blue;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
 }

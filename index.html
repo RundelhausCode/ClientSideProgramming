@@ -12,8 +12,8 @@
     <!--<div style="margin-left: px"><h1>The Compas</h1></div>*-->
     <div class="mbar">
       <button onclick="link('https://www.DMI.dk')">DMI</button>
-      <button onclick=link('https://www.DR.dk')>DR</button>
-      <button onclick=link('https://www.TV2.dk')>TV2</button>
+      <button onclick=link( 'https://www.DR.dk')>DR</button>
+      <button onclick=link( 'https://www.TV2.dk')>TV2</button>
       <button onclick="login()">LOGIN</button>
       <button onclick="SIGNUP()">SIGNUP</button>
     </div>
@@ -21,30 +21,30 @@
     <div id="mycontent"><iframe src="https://www.DMI.dk" name="indhold"></iframe></div>
 
     <script>
-    function dis(){
-  if (  document.getElementById("tos").checked == true) {
-      document.getElementById("tosid").removeAttribute("href");
-  }
-  else {
-    document.getElementById("tosid").href="tos.html";
-  }
+      function dis() {
+        if (document.getElementById("tos").checked == true) {
+          document.getElementById("tosid").removeAttribute("href");
+        } else {
+          document.getElementById("tosid").href = "tos.html";
+        }
 
-    }
-      function link(lk){
-      document.getElementById("mycontent").innerHTML = '<iframe src='+lk+' name="indhold">';
-    }
+      }
+
+      function link(lk) {
+        document.getElementById("mycontent").innerHTML = '<iframe src=' + lk + ' name="indhold">';
+      }
 
       function login() {
         document.getElementById("mycontent").innerHTML = "is't done"
       }
 
       function SIGNUP() {
-        var x = '<div class = logbox><label for="email"><b>Email</b></label>'+
-        '<input type="text"tabindex=1 placeholder="inpur Email" id="email" name="email" required>'+
-        '<label for="psw"><b>Kode</b></label> <input type="password" tabindex=2 placeholder="input Kode" id="psw" name="psw" required>'+
-        '<label for="psw-repeat"><b>Gentag Kode</b></label> <input type="password" tabindex=3 placeholder="Gentag Kode" id="pswg" name="psw-repeat" required>'+
-        '<input type="checkbox" onclick="dis()" tabindex=4 name="vehicle" id="tos" value="Bike"> <a href="tos.html" target="_blank" id="tosid"> accept tos<br>'+
-        '<button id="b1" type="submit" tabindex=5 onclick="validateForm()" class="registerbtn">Oprat Bruger</button></div>';
+        var x = '<div class = logbox><label for="email"><b>Email</b></label>' +
+          '<input type="text"tabindex=1 placeholder="inpur Email" id="email" name="email" required>' +
+          '<label for="psw"><b>Kode</b></label> <input type="password" tabindex=2 placeholder="input Kode" id="psw" name="psw" required>' +
+          '<label for="psw-repeat"><b>Gentag Kode</b></label> <input type="password" tabindex=3 placeholder="Gentag Kode" id="pswg" name="psw-repeat" required>' +
+          '<input type="checkbox" onclick="dis()" tabindex=4 name="vehicle" id="tos" value="Bike"> <a href="tos.html" target="_blank" id="tosid"> accept tos<br>' +
+          '<button id="b1" type="submit" tabindex=5 onclick="validateForm()" class="registerbtn">Oprat Bruger</button></div>';
         document.getElementById("mycontent").innerHTML = x;
 
         addToEvent(document.getElementById("email"));
@@ -52,56 +52,56 @@
         addToEvent(document.getElementById("pswg"));
 
 
-        /**/
+
       }
+
       function addToEvent(obj) {
         obj.addEventListener("keydown", function(event) {
-            if (event.keyCode === 13) {
-                document.getElementById("b1").click();
-            }
+          if (event.keyCode === 13) {
+            document.getElementById("b1").click();
+          }
         });
       }
+
       function validateForm() {
-    var x = document.getElementById("email").value;
-    var y = document.getElementById("psw").value;
-    var z = document.getElementById("pswg").value;
-    var t = document.getElementById("tos");
-    var ups = ""
-    if (x == "") {
-        ups = "Name must be filled out.";
-    }
-    if (!x.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-      ups = ups+"\nnot vaild email.";
-    }
-    if (y.length < 6) {
-      ups = ups+"\npassword length.";
-    }
-    if (!y.match(/[a-z]/g)) {
-      ups = ups+"\nno small laters.";
-    }
-    if (!y.match(/[A-Z]/g)) {
-      ups = ups+"\nno cap laters.";
-    }
-    if (!y.match(/[0-9]/g)) {
-      ups = ups+"\nno numbers.";
-    }
-    if (y !== z) {
-      ups = ups+"\npassword must be the same.";
-    }
+        var x = document.getElementById("email").value;
+        var y = document.getElementById("psw").value;
+        var z = document.getElementById("pswg").value;
+        var t = document.getElementById("tos");
+        var ups = ""
+        if (x == "") {
+          ups = "Name must be filled out.";
+        }
+        if (!x.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+          ups = ups + "\nnot vaild email.";
+        }
+        if (y.length < 6) {
+          ups = ups + "\npassword length.";
+        }
+        if (!y.match(/[a-z]/g)) {
+          ups = ups + "\nno small laters.";
+        }
+        if (!y.match(/[A-Z]/g)) {
+          ups = ups + "\nno cap laters.";
+        }
+        if (!y.match(/[0-9]/g)) {
+          ups = ups + "\nno numbers.";
+        }
+        if (y !== z) {
+          ups = ups + "\npassword must be the same.";
+        }
 
-    if (t.checked == false) {
-      ups = ups+ "\nacept tos"
-    }
-    if(ups == ""){
-      alert("bruge lavet");
-    }
-    else {
-      alert(ups)
-    }
+        if (t.checked == false) {
+          ups = ups + "\nacept tos"
+        }
+        if (ups == "") {
+          alert("bruge lavet");
+        } else {
+          alert(ups)
+        }
 
 
-}
-
+      }
     </script>
   </body>
 
